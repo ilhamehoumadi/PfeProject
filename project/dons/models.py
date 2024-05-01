@@ -1,18 +1,26 @@
 from django.db import models
 from django.utils import timezone
-from users.models import Donor,User
+# Create your models here.
 class Don(models.Model):
-    
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    #x=[('photo','phone'),]
     id=models.AutoField(primary_key=True)
+    name=models.CharField(max_length=50)
     date=models.DateTimeField(default=timezone.now)
+    numCpt=models.DecimalField(max_digits=10,decimal_places=2)
     montantDons=models.DecimalField(max_digits=10,decimal_places=4)
-    est_paye = models.BooleanField(default=False)
-    
+    #content=models.TextField()
+    #price=models.DecimalField(max_digits=5,decimal_places=2)
+    #image=models.ImageField(upload_to='photos/%y/%m/%d')
+    #category=models.CharField(max_length=50,null=True,blank=True,choices=x)
+    #date=models.DateField(null=True)
+    #time=models.TimeField(null=True)
+    #creted=models.DateTimeField(null=True)
     objects = models.Manager() 
     
     def __str__(self) :
-         return f"Don de {self.donor.first_name} - Montant: {self.montantDons} - Payé: {self.est_paye}"
-
-
+        return self.name
+    class Meta:
+        #verbose_name = '',
+        ordering =['name']
         

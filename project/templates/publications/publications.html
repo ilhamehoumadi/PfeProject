@@ -1,12 +1,15 @@
+
 {%  block content %}
     <br>
+    <br>
+    <br>
     <h1>liste des publications </h1>
-    {% for v in pub %}
-        <h1> {{v.titre}}</h1>
-        <p> {{v.contenu}}</p>
-        <img src="{{ v.image.url }}" alt="{{ v.titre }}">
-        <p> {{v.montant}}</p>
-        <p> {{v.date}}</p>
+    {% for x in pub %}
+        <h1> {{x.titre}}</h1>
+        <p> {{x.contenu}}</p>
+        <img src="{{ x.image.url }}" alt="{{ x.titre }}">
+        <p> {{x.montant}}</p>
+        <p> {{x.date}}</p>
         <br>
 
     {% endfor %}
