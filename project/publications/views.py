@@ -18,9 +18,7 @@ def publication(request):
 
 
 def publications(request):
-    publications = Publication.objects.all()
-    return render(request, 'publications/publications.html',{'pub ':publications})
-
+    return render(request, 'publications/publications.html',{'pub ':Publication.objects.all()})
 
 
 
